@@ -1,0 +1,58 @@
+---
+import "../styles/global.css";
+import Popover from "./Popover.astro";
+---
+
+<header>
+  <section class="header">
+    <div>
+      <h1>AskExperts</h1>
+    </div>
+    <div>
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Case Study</a></li>
+        <li><a href="">Team</a></li>
+        <li><a href="">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <Popover />
+    </div>
+  </section>
+</header>
+
+<style>
+  @layer components {
+    h1 {
+      font-size: var(--xs-font);
+    }
+
+    .header {
+      background-color: var(--primary-color-light);
+      color: var(--third-color);
+      display: flex;
+      padding: 1rem 2rem;
+    }
+
+    .header div {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header ul {
+      display: flex;
+      list-style: none;
+    }
+
+    li {
+      margin: 0 1rem;
+      a {
+        text-decoration: none;
+        color: var(--third-color);
+      }
+    }
+  }
+</style>
