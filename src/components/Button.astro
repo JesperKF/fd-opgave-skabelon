@@ -1,0 +1,11 @@
+---
+const { URL, variant = "secondary" } = Astro.props;
+---
+
+<a href={URL} data-variant={variant}>
+  <slot />
+</a>
+
+<style></style>
+
+<!-- <button url= variant => text</button>  -->
