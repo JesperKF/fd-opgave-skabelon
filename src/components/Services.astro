@@ -3,7 +3,7 @@
 const servicesData = await fetch("https://frontend-design-theme.netlify.app/api/services").then((response) => response.json());
 ---
 
-<ul>
+<ul class="services">
   {
     servicesData.services.map((service) => (
       <li>
@@ -17,5 +17,28 @@ const servicesData = await fetch("https://frontend-design-theme.netlify.app/api/
 
 <style>
   @layer components {
+    ul {
+      list-style: none;
+      display: flex;
+      padding: 2rem;
+      gap: 2rem;
+      width: var(--content-width);
+    }
+
+    li {
+      background-color: var(--primary-color-transparent);
+      padding: 1rem;
+
+      border-radius: var(--button-radius);
+      color: var(--third-color);
+
+      & a {
+        text-decoration: none;
+        color: var(--third-color);
+        padding: 0.5rem 1rem;
+        border-radius: var(--button-radius);
+        background-color: var(--primary-color);
+      }
+    }
   }
 </style>
