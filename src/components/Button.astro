@@ -6,6 +6,38 @@ const { URL, variant = "secondary" } = Astro.props;
   <slot />
 </a>
 
-<style></style>
+<style>
+  @layer components {
+    [data-variant="primary"] {
+      text-decoration: none;
+      background-color: var(--yellow-button);
+      color: var(--primary-color);
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: var(--button-radius);
+      cursor: pointer;
+    }
+
+    [data-variant="secondary"] {
+      text-decoration: none;
+      background-color: var(--primary-color);
+      color: var(--third-color);
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: var(--button-radius);
+      cursor: pointer;
+    }
+
+    [data-variant="tertiary"] {
+      text-decoration: none;
+      background-color: var(--third-color);
+      color: var(--primary-color);
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: var(--button-radius);
+      cursor: pointer;
+    }
+  }
+</style>
 
 <!-- <button url= variant => text</button>  -->
