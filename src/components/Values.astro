@@ -1,11 +1,122 @@
 ---
+interface Value {
+  icon: string;
+  title: string;
+  description: string;
+  link: {
+    url: string;
+    text: string;
+  };
+}
+
+interface ValuesData {
+  values: Value[];
+}
+
+const valuesData: ValuesData = await fetch("https://frontend-design-theme.netlify.app/api/coreValues").then((response) => response.json());
 const { variant = "secondary" } = Astro.props;
+import Button from "./Button.astro";
 ---
 
-<style>
-  [data-variant="primary"] {
-  }
+<section data-variant={variant}>
+  <div class="top">
+    <div class="text">
+      <p class="title">GROWING WITH OUR CLIENTS</p>
+      <h2>Our core values & principles</h2>
+      <p>Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.</p>
+    </div>
+    <div>
+      <Button URL="#0" variant="tertiary">Get in touch</Button>
+    </div>
+  </div>
+  <div class="grid">
+    <ul>
+      {
+        valuesData.values.map((value) => (
+          <li>
+            <img src={`/icons/${value.icon}.svg`} alt="" />
+            <h2>{value.title}</h2>
+            <p>{value.description}</p>
+            <a href={value.link.url}>{value.link.text}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
 
-  [data-variant="secondary"] {
+<style>
+  @layer components {
+    [data-variant="primary"] {
+    }
+
+    [data-variant="secondary"] {
+      background-color: var(--primary-color);
+      color: var(--third-color);
+      padding: 3rem;
+      grid-column: 1/-1;
+
+      .top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: var(--content-width);
+      }
+
+      .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 600px;
+        h2 {
+          font-size: var(--xs-font);
+          font-weight: 700;
+        }
+        .title {
+          background-color: var(--yellow-button);
+          color: var(--primary-color);
+          border-radius: var(--box-radius);
+          padding: 0.2rem 1rem;
+          width: fit-content;
+          margin-bottom: 0.5rem;
+        }
+      }
+      .grid {
+        display: grid;
+        grid: auto / repeat(4, 1fr);
+        gap: 1rem;
+        ul {
+          list-style: none;
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+          width: var(--content-width);
+          li {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            max-width: 250px;
+            background-color: var(--primary-color-transparent);
+            border-radius: var(--button-radius);
+            color: var(--third-color);
+            img {
+              width: 50px;
+              height: 50px;
+            }
+            h2 {
+              font-size: var(--xxs-font);
+            }
+            p {
+              margin-top: 1rem;
+              margin-bottom: 1rem;
+            }
+            a {
+              text-decoration: none;
+              color: var(--third-color);
+            }
+          }
+        }
+      }
+    }
   }
 </style>
