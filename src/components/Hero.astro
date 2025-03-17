@@ -10,17 +10,43 @@ import Button from "./Button.astro";
     <p>Discover tailored strategies and expert insights to take your business to the next level. Let us help you navigate challenges and achieve sustainable success.</p>
     <Button URL="#0" variant="tertiary">Book a Meeting</Button>
   </div>
-  <div class="right"></div>
-  <Services />
+  <div class="right">
+    <img src="public/img/heroForside.webp" alt="foto1" />
+  </div>
+  <div class="full-width">
+    <Services />
+  </div>
 </section>
 
 <style>
-  .hero {
-    display: grid;
-    grid-template-columns: subgrid;
+  @layer components {
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
 
-    > * {
-      grid-column: 2;
+      h2 {
+        font-size: var(--s-font);
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      .left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem;
+        background-color: var(--primary-color);
+        color: var(--third-color);
+      }
+
+      .right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
   }
 </style>

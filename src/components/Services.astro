@@ -4,40 +4,54 @@ const servicesData = await fetch("https://frontend-design-theme.netlify.app/api/
 import Button from "./Button.astro";
 ---
 
-<ul class="services">
-  {
-    servicesData.services.map((service) => (
-      <li>
-        <h2>{service.title}</h2>
-        <p>{service.description}</p>
-        <Button URL="#0">{service.buttonText}</Button>
-      </li>
-    ))
-  }
-</ul>
+<section class="list">
+  <ul class="services">
+    {
+      servicesData.services.map((service) => (
+        <li>
+          <h2>{service.title}</h2>
+          <p>{service.description}</p>
+          <Button URL="#0">{service.buttonText}</Button>
+        </li>
+      ))
+    }
+  </ul>
+</section>
 
 <style>
   @layer components {
+    .list {
+      display: grid;
+      grid-column: 2;
+    }
     ul {
       list-style: none;
       display: flex;
-      grid-column: 2;
+      width: var(--content-width);
       padding: 2rem;
-      gap: 2rem;
+      gap: 3.5rem;
       li {
         background-color: var(--primary-color-transparent);
         padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
 
         border-radius: var(--button-radius);
         color: var(--third-color);
 
         h2 {
-          font-size: var(--xs-font);
+          font-size: var(--xxs-font);
         }
 
         p {
           margin-top: 1rem;
           margin-bottom: 2.5rem;
+          flex-grow: 1;
+        }
+
+        Button {
+          margin-top: auto;
         }
       }
     }
