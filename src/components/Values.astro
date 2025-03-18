@@ -1,17 +1,5 @@
 ---
-interface Value {
-  icon: string;
-  title: string;
-  description: string;
-  link: {
-    url: string;
-    text: string;
-  };
-}
-
-interface ValuesData {
-  values: Value[];
-}
+//@ts-nocheck
 
 const valuesData: ValuesData = await fetch("https://frontend-design-theme.netlify.app/api/coreValues").then((response) => response.json());
 const { variant = "secondary" } = Astro.props;
@@ -25,7 +13,7 @@ import Button from "./Button.astro";
       <h2>Our core values & principles</h2>
       <p>Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.</p>
     </div>
-    <div>
+    <div class="button">
       <Button URL="#0" variant="tertiary">Get in touch</Button>
     </div>
   </div>
@@ -34,7 +22,7 @@ import Button from "./Button.astro";
       {
         valuesData.values.map((value) => (
           <li>
-            <img src={`/icons/${value.icon}.svg`} alt="" />
+            <img src={`src/icons/${value.icon}.svg`} alt="" />
             <h2>{value.title}</h2>
             <p>{value.description}</p>
             <a href={value.link.url}>{value.link.text}</a>
@@ -51,6 +39,7 @@ import Button from "./Button.astro";
     }
 
     [data-variant="secondary"] {
+      display: grid;
       background-color: var(--primary-color);
       color: var(--third-color);
       padding: 3rem;
@@ -81,6 +70,12 @@ import Button from "./Button.astro";
           margin-bottom: 0.5rem;
         }
       }
+
+      .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       .grid {
         display: grid;
         grid: auto / repeat(4, 1fr);
@@ -96,12 +91,12 @@ import Button from "./Button.astro";
             flex-direction: column;
             padding: 1rem;
             max-width: 250px;
-            background-color: var(--primary-color-transparent);
+            background-color: var(--third-color);
             border-radius: var(--button-radius);
-            color: var(--third-color);
+            color: var(--primary-color);
             img {
-              width: 50px;
-              height: 50px;
+              width: 40px;
+              height: 40px;
             }
             h2 {
               font-size: var(--xxs-font);
@@ -112,7 +107,7 @@ import Button from "./Button.astro";
             }
             a {
               text-decoration: none;
-              color: var(--third-color);
+              color: var(--primary-color);
             }
           }
         }

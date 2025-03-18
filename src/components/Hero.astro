@@ -4,48 +4,68 @@ import Button from "./Button.astro";
 ---
 
 <section class="hero">
-  <!-- Markup her -->
   <div class="left">
     <h2>Empowering Your Business Growth</h2>
     <p>Discover tailored strategies and expert insights to take your business to the next level. Let us help you navigate challenges and achieve sustainable success.</p>
     <Button URL="#0" variant="tertiary">Book a Meeting</Button>
   </div>
   <div class="right">
-    <img src="public/img/heroForside.webp" alt="foto1" />
+    <img src="/img/heroForside.webp" alt="foto1" />
   </div>
-  <div class="full-width">
-    <Services />
-  </div>
+  <Services />
 </section>
 
 <style>
   @layer components {
     .hero {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: subgrid;
+      gap: 0;
+      grid-column: 1/-1;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        bottom: 25%;
+        background-color: var(--primary-color);
+        z-index: -1;
+      }
+    }
+
+    .left {
+      grid-column: 2 / middle;
+      color: var(--third-color);
+      padding-block: 4rem 2rem;
+
+      > *:not(:first-child) {
+        margin-top: 20px;
+      }
+
+      * {
+        display: grid;
+      }
 
       h2 {
-        font-size: var(--s-font);
+        font-size: var(--m-font);
+        font-weight: 700;
+        width: 90%;
       }
 
+      p {
+        width: 90%;
+      }
+    }
+    .right {
+      grid-column: middle / -1;
+      contain: size;
       img {
         width: 100%;
-        height: auto;
-      }
-
-      .left {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 2rem;
-        background-color: var(--primary-color);
-        color: var(--third-color);
-      }
-
-      .right {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 20%;
+        place-self: center;
       }
     }
   }

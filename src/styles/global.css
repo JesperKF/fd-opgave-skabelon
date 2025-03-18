@@ -10,6 +10,8 @@
   --secondary-color: #f5f5f5;
   --third-color: #ffffff;
   --accent-color: #4eaf4e;
+  --accent-color-second: #595566;
+  --accent-color-third: #ebebeb;
 
   /*Fonte*/
   --xxs-font: 1.5625rem;
@@ -44,10 +46,10 @@ main {
 
 body {
   display: grid;
-  grid-template-columns: 1fr [content] minmax(0, var(--content-width)) 1fr;
-  /* gap: 20px; */
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(20px, 1fr) [content-start] minmax(0, 600px) [middle] minmax(0, 600px) [content-end] minmax(20px, 1fr);
 
   > * {
-    grid-column: 1 / -1;
+    grid-column: content;
   }
 }

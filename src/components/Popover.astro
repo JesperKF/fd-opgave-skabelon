@@ -35,7 +35,6 @@
     }
 
     [popover] {
-      display: flex;
       min-width: 500px;
       padding: 40px 60px 60px 60px;
       flex-direction: column;
@@ -54,6 +53,7 @@
       transition-behavior: allow-discrete;
 
       &:popover-open {
+        display: flex;
         opacity: 1;
         translate: 0 0;
 

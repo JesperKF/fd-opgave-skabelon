@@ -1,0 +1,128 @@
+---
+//@ts-nocheck
+import ArrowRight from "../icons/arrow--right.svg";
+import ArrowLeft from "../icons/arrow-left.svg";
+
+const financialData = await fetch("https://frontend-design-theme.netlify.app/api/financialProjections").then((response) => response.json());
+console.log(financialData);
+---
+
+<section class="financial">
+  <div class="top">
+    <div class="text">
+      <h2>Financial Projections</h2>
+      <p>Financial projections are essential for planning and monitoring a company’s performance. They provide insights into potential revenue, expenses, and profitability over specific periods.</p>
+    </div>
+    <div class="buttons">
+      <button>
+        <ArrowLeft class="bars" />
+      </button>
+      <button>
+        <ArrowRight class="bars" />
+      </button>
+    </div>
+  </div>
+  <div class="card-wrapper">
+    <ul class="card-container">
+      {
+        financialData.values.map((finance) => (
+          <li>
+            <img src={`src/icons/${finance.icon}.svg`} alt="" />
+            <h2>{finance.title}</h2>
+            <p>{finance.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  @layer components {
+    .financial {
+      display: grid;
+      background-color: var(--secondary-color);
+      color: var(--accent-color-second);
+      padding: 2rem;
+      grid-column: 1/-1;
+
+      .top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: var(--content-width);
+        margin-bottom: 2rem;
+      }
+
+      .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 600px;
+        h2 {
+          font-size: var(--xs-font);
+          font-weight: 700;
+          color: var(--primary-color);
+          padding-bottom: 1rem;
+        }
+      }
+
+      .buttons {
+        display: flex;
+        place-self: end end;
+        gap: 3rem;
+
+        button {
+          background-color: var(--primary-color);
+          width: 60px;
+          height: 60px;
+          border-radius: var(--box-radius);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            background-color: var(--yellow-button);
+
+            .bars {
+              color: var(--primary-color);
+            }
+          }
+          .bars {
+            color: var(--third-color);
+          }
+        }
+      }
+
+      .card-container-wrapper {
+        grid-column: 1 / -1;
+      }
+
+      ul.card-container {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        overflow-x: auto;
+        padding-inline: max(20px, 50% - var(--content-width) / 2);
+        scroll-snap-type: inline mandatory;
+        scroll-padding-inline-start: max(20px, 50% - var(--content-width) / 2);
+
+        li {
+          flex-basis: min(90%, 400px);
+          flex-shrink: 0;
+          scroll-snap-align: center;
+          padding: 2rem;
+          border-radius: var(--button-radius);
+          background: var(--accent-color-third);
+          color: var(--primary-color);
+
+          h2 {
+            font-size: var(--xxs-font);
+            font-weight: 700;
+            padding-block: 1rem;
+          }
+        }
+      }
+    }
+  }
+</style>
