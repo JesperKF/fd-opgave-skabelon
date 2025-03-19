@@ -1,5 +1,5 @@
 ---
-import Checkmark from "../icons/checkmark.svg"
+import Checkmark from "../icons/checkmark.svg";
 ---
 
 <section>
@@ -12,101 +12,96 @@ import Checkmark from "../icons/checkmark.svg"
     <h2>What To Expect</h2>
     <p>Our collaboration is built on transparency, efficiency, and measurable results. Together, we create strategies tailored to your unique needs and goals.</p>
     <ul class="list">
-      <li><Checkmark class="check"/>Collaborate to build actionable strategies that drive sustainable growth and deliver tangible outcomes.</li>
-      <li><Checkmark class="check"/>Identify opportunities to optimize processes and implement impactful solutions with measurable results.</li>
+      <li><Checkmark class="check" />Collaborate to build actionable strategies that drive sustainable growth and deliver tangible outcomes.</li>
+      <li><Checkmark class="check" />Identify opportunities to optimize processes and implement impactful solutions with measurable results.</li>
     </ul>
   </div>
 </section>
 
 <style>
-    @layer components {
-        section{
-            display: grid;
-            grid-column: content;
-            grid-template-columns: subgrid;
-            gap: 2rem;
-            margin: 5% 0 0 0;
-            padding-bottom: 14rem;
-            
-            
-            figure {
-                position: relative;
-                height: auto;
+  @layer components {
+    section {
+      display: grid;
+      grid-column: content;
+      grid-template-columns: subgrid;
+      gap: 2rem;
+      margin: 5% 0 0 0;
+      padding-bottom: 14rem;
 
-                .en {
-                    position absolute;
-                    top: 0;
-                    left: 0;
-                    z-index: -1;
-                }
-                &::before{
-                    content: "";
-                    background-color: var(--accent-color);
-                    width: 164px;
-                    height: 183px;
-                    position: absolute;
-                    top: 15%;
-                    left: 12%;
-                    z-index: 0;
-                    border-radius: var(--button-radius);
-                }
-                .to{
-                    position: absolute;
-                    top: 30%;
-                    left: 20%;
-                    z-index: 0;
-                    height: 360px;
-                    width: 80%;
-                    object-fit: cover;
-                    object-position: 0% 30%;
-                    border-radius: var(--button-radius);
+      figure {
+        position: relative;
+        height: auto;
 
-                }
-            }
-            .text{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                
-                .bubble {
-                    background-color: var(--yellow-button);
-                    color: var(--primary-color);
-                    border-radius: var(--box-radius);
-                    padding: 0.2rem 1rem;
-                    width: fit-content;
-                    margin-bottom: 0.5rem;
-                    margin-bottom: 1rem;
-               }
-                h2 {
-                    font-size: var(--s-font);
-                    font-weight: 700;
-                    color: var(--primary-color);
-                    padding-bottom: 1rem;
-                }
-                p {
-                    color: var(--primary-color);
-                    padding-bottom: 1rem;
-                }
-                ul {
-                    display: grid;
-                    list-style: none;
-                    padding-left: 0;
-                    gap: 1rem;
-
-                    li{
-                        display: flex;
-                        align-items: center; 
-                        gap: 1rem;
-
-                        .check{
-                            color: var(--accent-color);
-                        }
-                        
-                    }
-                    
-
-                }
-            }
+        .en {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
         }
+        &::before {
+          content: "";
+          background-color: var(--accent-color);
+          width: 164px;
+          height: 183px;
+          position: absolute;
+          top: 15%;
+          left: 12%;
+          z-index: 0;
+          border-radius: var(--button-radius);
+        }
+        .to {
+          position: absolute;
+          top: 30%;
+          left: 20%;
+          z-index: 0;
+          height: 360px;
+          width: 80%;
+          object-fit: cover;
+          object-position: 0% 30%;
+          border-radius: var(--button-radius);
+        }
+      }
+      .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .bubble {
+          background-color: var(--yellow-button);
+          color: var(--primary-color);
+          border-radius: var(--box-radius);
+          padding: 0.2rem 1rem;
+          width: fit-content;
+          margin-bottom: 0.5rem;
+          margin-bottom: 1rem;
+        }
+        h2 {
+          font-size: var(--s-font);
+          font-weight: 700;
+          color: var(--primary-color);
+          padding-bottom: 1rem;
+        }
+        p {
+          color: var(--primary-color);
+          padding-bottom: 1rem;
+        }
+        ul {
+          display: grid;
+          list-style: none;
+          padding-left: 0;
+          gap: 1rem;
+
+          li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            .check {
+              color: var(--accent-color);
+            }
+          }
+        }
+      }
     }
+  }
 </style>

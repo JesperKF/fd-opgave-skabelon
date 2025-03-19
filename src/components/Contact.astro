@@ -36,9 +36,12 @@ import Clock from "../icons/clock.svg";
     </ul>
   </div>
   <div class="img-container">
-    <img src="../img/contactUs1.webp" alt="1" />
-    <img src="../img/contactUs2.webp" alt="2" />
-    <img src="../img/contactUs3.webp" alt="3" />
+    <img class="img1" src="../img/contactUs1.webp" alt="1" />
+    <img class="img2" src="../img/contactUs2.webp" alt="2" />
+    <img class="img3" src="../img/contactUs3.webp" alt="3" />
+    <figure>
+      <img class="pattern" src="../img/Pattern.png" alt="" />
+    </figure>
   </div>
 </section>
 
@@ -96,6 +99,58 @@ import Clock from "../icons/clock.svg";
           }
         }
       }
+      .img-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr 1fr;
+        gap: 1rem;
+        .img1 {
+          grid-column: 1;
+          grid-row: 1 / span 2;
+          object-fit: cover;
+          border-radius: var(--button-radius);
+        }
+        .img2 {
+          grid-column: 2;
+          grid-row: 1;
+          object-fit: cover;
+          border-radius: var(--button-radius);
+        }
+        .img3 {
+          grid-column: 2;
+          grid-row: 2;
+          object-fit: cover;
+          border-radius: var(--button-radius);
+        }
+        figure {
+          position: relative;
+          margin-inline: auto;
+          max-inline-size: 400px;
+          margin: 3rem;
+          display: block;
+
+          .pattern {
+            position: absolute;
+            bottom: 14.5rem;
+            left: 22rem;
+            z-index: -1;
+          }
+
+          &::before {
+            content: "";
+            background: var(--accent-color);
+            height: 200px;
+            width: 125px;
+            position: absolute;
+            top: -12rem;
+            right: 6rem;
+            z-index: -1;
+            border-radius: var(--button-radius);
+            rotate: 90deg;
+          }
+        }
+      }
     }
   }
+  /*object-fit: cover; border-radius: var(--button-radius);*/
 </style>

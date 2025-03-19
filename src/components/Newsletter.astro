@@ -9,8 +9,8 @@ import Button from "./Button.astro";
   </div>
   <div class="form">
     <input type="email" placeholder="Your email address" />
-    <Button URL="#0" variant="primary">Subscribe</Button>   
-    <figure></figure>
+    <Button URL="#0" variant="primary">Subscribe</Button>
+    <figure><img class="en" src="../img/Pattern.png" alt="" /></figure>
   </div>
 </section>
 
@@ -61,8 +61,6 @@ import Button from "./Button.astro";
         color: var(--primary-color);
       }
     }
-    }
-
     figure {
       position: relative;
       margin-inline: auto;
@@ -70,6 +68,12 @@ import Button from "./Button.astro";
       margin: 3rem;
       display: block;
 
+      .en {
+        position: absolute;
+        top: 5rem;
+        left: 0;
+        z-index: 2;
+      }
       &::before {
         content: "";
         background: var(--accent-color);
