@@ -14,7 +14,7 @@ import Button from "./Button.astro";
       <p>Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.</p>
     </div>
     <div class="button">
-      <Button URL="#0" variant="tertiary">Get in touch</Button>
+      <Button URL="#0" variant={variant === "primary" ? "secondary" : "tertiary"}>Get in touch</Button>
     </div>
   </div>
   <div class="grid">
@@ -36,6 +36,83 @@ import Button from "./Button.astro";
 <style>
   @layer components {
     [data-variant="primary"] {
+      display: grid;
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      padding: 3rem;
+      grid-column: 1/-1;
+
+      .top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: var(--content-width);
+      }
+
+      .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 600px;
+        h2 {
+          font-size: var(--xs-font);
+          font-weight: 700;
+        }
+        .title {
+          background-color: var(--yellow-button);
+          color: var(--primary-color);
+          border-radius: var(--box-radius);
+          padding: 0.2rem 1rem;
+          width: fit-content;
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .grid {
+        display: grid;
+        grid: auto / repeat(4, 1fr);
+        gap: 1rem;
+        ul {
+          list-style: none;
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+          width: var(--content-width);
+          li {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            max-width: 250px;
+            background-color: var(--third-color);
+            border-radius: var(--button-radius);
+            color: var(--primary-color);
+            img {
+              width: 40px;
+              height: 40px;
+              color: var(--third-color);
+              background-color: var(--primary-color);
+              border-radius: var(--box-radius);
+              padding: 0.5rem;
+            }
+            h2 {
+              font-size: var(--xxs-font);
+            }
+            p {
+              margin-top: 1rem;
+              margin-bottom: 1rem;
+            }
+            a {
+              text-decoration: none;
+              color: var(--primary-color);
+            }
+          }
+        }
+      }
     }
 
     [data-variant="secondary"] {

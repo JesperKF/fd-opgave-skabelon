@@ -1,0 +1,61 @@
+---
+//@ts-nocheck
+const employeesData = await fetch("https://frontend-design-theme.netlify.app/api/employees")
+  .then((response) => response.json())
+  .then((data) => data.slice(0, 3));
+---
+
+<section>
+  <div class="text">
+    <p class="bubble">OUR TEAM</p>
+    <h2>We champion the bold to achieve the extraordinary</h2>
+    <p>
+      Our success stems from the synergy between dedicated teams and our valued clients. We prioritize a company culture that fosters exceptional productivity, ensures customer satisfaction, and
+      promotes mutual respect among all team members.
+    </p>
+  </div>
+  <div class="employees">
+    <ul>
+      {
+        employeesData.map((employee) => (
+          <li>
+            <img src={employee.img} alt={employee.name} class="employee-img" />
+
+            <h3 class="employee-name">{employee.name}</h3>
+            <p class="bubble">{employee.title}</p>
+
+            <p class="employee-description">{employee.description}</p>
+
+            <div class="social-links">
+              {employee.social_links.map((social) => (
+                <a href={social.url} class="social-link" aria-label={social.platform}>
+                  <div innerHTML={social.icon} />
+                </a>
+              ))}
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  @layer components {
+    section {
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-column: 1/-1;
+      .text {
+        grid-column: 2;
+      }
+      .employees {
+        grid-column: content;
+        grid-row: 2;
+        ul {
+          display: flex;
+        }
+      }
+    }
+  }
+</style>

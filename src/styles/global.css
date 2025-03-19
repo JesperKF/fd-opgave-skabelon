@@ -12,6 +12,7 @@
   --accent-color: #4eaf4e;
   --accent-color-second: #595566;
   --accent-color-third: #ebebeb;
+  --transparent-box: rgba(255, 255, 255, 0.85);
 
   /*Fonte*/
   --xxxs-font: 1.25rem;
