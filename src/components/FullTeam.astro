@@ -22,28 +22,28 @@ import Button from "./Button.astro";
     <ul>
       {
         employeesData.map((employee, index) => (
-          <a href={`/employee/${employee.slug}`}>
-            <li>
-              <div class="employee-image-container">
-                <img src={employee.img} alt={employee.name} class="employee-img" />
-                <div class="bubble-wrapper">
-                  <Bubble text={employee.title} variant={index === 0 ? "primary" : "secondary"} />
-                </div>
+          <li>
+            <div class="employee-image-container">
+              <img src={employee.img} alt={employee.name} class="employee-img" />
+              <div class="bubble-wrapper">
+                <Bubble text={employee.title} variant={index === 0 ? "primary" : "secondary"} />
               </div>
+            </div>
 
+            <a href={`/employee/${employee.slug}`}>
               <h3 class="employee-name">{employee.name}</h3>
+            </a>
 
-              <p class="employee-description">{employee.description}</p>
+            <p class="employee-description">{employee.description}</p>
 
-              <div class="social-links">
-                {employee.social_links.map((social) => (
-                  <a href={social.url} class="social-link" aria-label={social.platform}>
-                    <div innerHTML={social.icon} />
-                  </a>
-                ))}
-              </div>
-            </li>
-          </a>
+            <div class="social-links">
+              {employee.social_links.map((social) => (
+                <a href={social.url} class="social-link" aria-label={social.platform}>
+                  <div innerHTML={social.icon} />
+                </a>
+              ))}
+            </div>
+          </li>
         ))
       }
     </ul>
@@ -105,9 +105,13 @@ import Button from "./Button.astro";
               }
             }
 
-            h3 {
-              font-size: var(--xxs-font);
-              font-weight: 600;
+            a {
+              text-decoration: none;
+              color: var(--primary-color);
+              h3 {
+                font-size: var(--xxs-font);
+                font-weight: 600;
+              }
             }
             .employee-description {
               color: var(--accent-color-second);

@@ -3,9 +3,9 @@
 const caseData = await fetch("https://frontend-design-theme.netlify.app/api/caseStudy").then((response) => response.json());
 ---
 
-<article>
+<article class="full-bleed">
   {
-    caseData.sections.map((section) => (
+    caseData.sections.map((section, index) => (
       <section>
         {caseData.sections[0] === section ? <h2>{section.title}</h2> : <h3>{section.title}</h3>}
 
@@ -18,6 +18,7 @@ const caseData = await fetch("https://frontend-design-theme.netlify.app/api/case
         ) : (
           <p>{section.content}</p>
         )}
+        <div class="img-container">{index === 1 && <img src="/public/img/storyboardIMG.webp" alt="" />}</div>
         {section.highlights && (
           <ul>
             {section.highlights.map((highlight) => (
@@ -33,20 +34,31 @@ const caseData = await fetch("https://frontend-design-theme.netlify.app/api/case
 <style>
   @layer components {
     article {
-      padding-inline: 8rem;
-      padding-block: 2rem;
-    }
-    h2 {
-      font-size: var(--s-font);
-      font-weight: 700;
-    }
-    h3 {
-      font-size: var(--xs-font);
-      font-weight: 600;
-    }
-    p {
-      margin-block: 1rem;
-      color: var(--accent-color-second);
+      grid-column: content;
+      padding: 3rem;
+      h2 {
+        font-size: var(--s-font);
+        font-weight: 700;
+      }
+      h3 {
+        font-size: var(--xs-font);
+        font-weight: 600;
+      }
+      p {
+        margin-block: 1rem;
+        color: var(--accent-color-second);
+      }
+      .img-container {
+        display: flex;
+        padding-inline: 2rem;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          border-radius: var(--button-radius);
+          max-height: 500px;
+        }
+      }
     }
   }
 </style>
