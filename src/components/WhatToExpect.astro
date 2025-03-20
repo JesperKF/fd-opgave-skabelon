@@ -26,18 +26,20 @@ import Bubble from "./Bubble.astro";
       grid-column: content;
       grid-template-columns: subgrid;
       gap: 2rem;
-      margin: 5% 0 0 0;
-      padding-bottom: 14rem;
+      /* margin: 5% 0 0 0; */
+      margin-block: 4rem;
 
       figure {
+        max-width: 46rem;
+        border-radius: var(--button-radius);
         position: relative;
-        height: auto;
+        padding: 3rem 2rem 0;
 
         .en {
           position: absolute;
           top: 0;
           left: 0;
-          z-index: -1;
+          z-index: -2;
         }
         &::before {
           content: "";
@@ -45,27 +47,23 @@ import Bubble from "./Bubble.astro";
           width: 164px;
           height: 183px;
           position: absolute;
-          top: 15%;
-          left: 12%;
-          z-index: 0;
+          top: 8%;
+          left: 3%;
+          z-index: -1;
           border-radius: var(--button-radius);
         }
         .to {
-          position: absolute;
-          top: 30%;
-          left: 20%;
-          z-index: 0;
-          height: 360px;
-          width: 80%;
+          width: 100%;
+          z-index: 1;
+          height: 20rem;
           object-fit: cover;
           object-position: 0% 30%;
-          border-radius: var(--button-radius);
+          border-radius: inherit;
         }
       }
       .text {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         h2 {
           font-size: var(--s-font);
           font-weight: 700;

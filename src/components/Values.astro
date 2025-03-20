@@ -17,37 +17,25 @@ import Button from "./Button.astro";
       <Button URL="#0" variant={variant === "primary" ? "secondary" : "tertiary"}>Get in touch</Button>
     </div>
   </div>
-  <div class="grid">
-    <ul>
-      <!-- {
-        valuesData.values.map((value) => (
+
+  <ul>
+    {
+      valuesData.values.map(async (value) => {
+        const Icon = await import(`../icons/${value.icon}.svg`).then((module) => module.default);
+
+        return (
           <li>
-            <svg src={`src/icons/${value.icon}.svg`} alt="" />
+            <div class="svg-wrapper">
+              <Icon />
+            </div>
             <h2>{value.title}</h2>
             <p>{value.description}</p>
             <a href={value.link.url}>{value.link.text}</a>
           </li>
-        ))
-      } -->
-
-      {
-        valuesData.values.map(async (value) => {
-          const Icon = await import(`../icons/${value.icon}.svg`).then((module) => module.default);
-
-          return (
-            <li>
-              <div class="svg-wrapper">
-                <Icon />
-              </div>
-              <h2>{value.title}</h2>
-              <p>{value.description}</p>
-              <a href={value.link.url}>{value.link.text}</a>
-            </li>
-          );
-        })
-      }
-    </ul>
-  </div>
+        );
+      })
+    }
+  </ul>
 </section>
 
 <style>
@@ -89,50 +77,45 @@ import Button from "./Button.astro";
         justify-content: center;
         align-items: center;
       }
-      .grid {
-        display: grid;
-        grid: auto / repeat(4, 1fr);
-        gap: 1rem;
-        ul {
-          list-style: none;
+
+      ul {
+        grid-column: content;
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        li {
           display: flex;
-          flex-direction: row;
-          gap: 1rem;
-          width: var(--content-width);
-          li {
-            display: flex;
-            flex-direction: column;
-            padding: 1rem;
-            max-width: 250px;
-            background-color: var(--third-color);
-            border-radius: var(--button-radius);
+          flex-direction: column;
+          padding: 1rem;
+          max-width: 250px;
+          background-color: var(--third-color);
+          border-radius: var(--button-radius);
+          color: var(--primary-color);
+
+          .svg-wrapper {
+            background-color: var(--primary-color);
+            border-radius: var(--box-radius);
+            padding: 0.5rem;
+            display: inline-flex;
+            width: fit-content;
+          }
+
+          svg {
+            width: 2rem;
+            height: 2rem;
+            display: block;
+            color: var(--third-color);
+          }
+          h2 {
+            font-size: var(--xxs-font);
+          }
+          p {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+          }
+          a {
+            text-decoration: none;
             color: var(--primary-color);
-
-            .svg-wrapper {
-              background-color: var(--primary-color);
-              border-radius: var(--box-radius);
-              padding: 0.5rem;
-              display: inline-flex;
-              width: fit-content;
-            }
-
-            svg {
-              width: 2rem;
-              height: 2rem;
-              display: block;
-              color: var(--third-color);
-            }
-            h2 {
-              font-size: var(--xxs-font);
-            }
-            p {
-              margin-top: 1rem;
-              margin-bottom: 1rem;
-            }
-            a {
-              text-decoration: none;
-              color: var(--primary-color);
-            }
           }
         }
       }
@@ -146,7 +129,6 @@ import Button from "./Button.astro";
       grid-column: 1/-1;
 
       .top {
-        padding-inline: 3rem;
         display: flex;
 
         justify-content: space-between;
@@ -176,49 +158,45 @@ import Button from "./Button.astro";
         justify-content: center;
         align-items: center;
       }
-      .grid {
-        display: grid;
-        grid: auto / repeat(4, 1fr);
-        gap: 1rem;
-        ul {
-          list-style: none;
-          display: flex;
-          gap: 3rem;
-          width: var(--content-width);
-          justify-content: center;
-          li {
-            display: flex;
-            flex-direction: column;
-            padding: 1rem;
-            max-width: 250px;
-            background-color: var(--third-color);
-            border-radius: var(--button-radius);
-            color: var(--primary-color);
-            .svg-wrapper {
-              background-color: var(--primary-color);
-              border-radius: var(--box-radius);
-              padding: 0.5rem;
-              display: inline-flex;
-              width: fit-content;
-            }
 
-            svg {
-              width: 2rem;
-              height: 2rem;
-              display: block;
-              color: var(--third-color);
-            }
-            h2 {
-              font-size: var(--xxs-font);
-            }
-            p {
-              margin-top: 1rem;
-              margin-bottom: 1rem;
-            }
-            a {
-              text-decoration: none;
-              color: var(--primary-color);
-            }
+      ul {
+        grid-column: content;
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        li {
+          display: flex;
+          flex-direction: column;
+          padding: 1rem;
+          max-width: 250px;
+          background-color: var(--third-color);
+          border-radius: var(--button-radius);
+          color: var(--primary-color);
+
+          .svg-wrapper {
+            background-color: var(--primary-color);
+            border-radius: var(--box-radius);
+            padding: 0.5rem;
+            display: inline-flex;
+            width: fit-content;
+          }
+
+          svg {
+            width: 2rem;
+            height: 2rem;
+            display: block;
+            color: var(--third-color);
+          }
+          h2 {
+            font-size: var(--xxs-font);
+          }
+          p {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+          }
+          a {
+            text-decoration: none;
+            color: var(--primary-color);
           }
         }
       }

@@ -15,21 +15,21 @@ import Bubble from "./Bubble.astro";
     <ul>
       <li>
         <div class="icon-title">
-          <Phone />
+          <Phone class="first" />
           <h3>Call Today</h3>
         </div>
         <p>+1 800 100 900</p>
       </li>
       <li>
         <div class="icon-title">
-          <Clock />
+          <Clock class="second" />
           <h3>Monday To Friday</h3>
         </div>
         <p>9AM - 5PM</p>
       </li>
       <li>
         <div class="icon-title">
-          <Pin />
+          <Pin class="third" />
           <h3>USA Office</h3>
         </div>
         <p>195 Devonshire St Boston, MA 02110</p>
@@ -82,10 +82,35 @@ import Bubble from "./Bubble.astro";
             align-items: center;
             justify-content: center;
             gap: 1rem;
+
+            svg.first {
+              height: 40px;
+              width: 40px;
+              padding: 0.5rem;
+              border-radius: var(--box-radius);
+              background-color: #ffecbb;
+              color: var(--yellow-button);
+            }
+            svg.second {
+              height: 40px;
+              width: 40px;
+              padding: 0.5rem;
+              border-radius: var(--box-radius);
+              background-color: #a4eda4;
+              color: var(--accent-color);
+            }
+            svg.third {
+              height: 40px;
+              width: 40px;
+              padding: 0.5rem;
+              border-radius: var(--box-radius);
+              background-color: #eaeaea;
+              color: var(--primary-color);
+            }
           }
           li p {
             margin-top: 0.25rem;
-            padding-left: 2.5rem;
+            padding-left: 3.5rem;
             font-size: var(--xxxs-font);
             font-weight: 500;
           }

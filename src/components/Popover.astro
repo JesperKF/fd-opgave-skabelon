@@ -38,10 +38,6 @@
       gap: 0.5rem;
     }
 
-    ::backdrop {
-      backdrop-filter: blur(4px);
-    }
-
     [popover] {
       min-width: 500px;
       padding: 40px 60px 60px 60px;
@@ -64,6 +60,12 @@
         display: flex;
         opacity: 1;
         translate: 0 0;
+
+        &::backdrop {
+          opacity: 0.99;
+          background-color: rgba(27, 27, 27, 0.6);
+          backdrop-filter: blur(10px);
+        }
 
         @starting-style {
           opacity: 0;

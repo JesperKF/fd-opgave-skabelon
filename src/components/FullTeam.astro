@@ -22,26 +22,28 @@ import Button from "./Button.astro";
     <ul>
       {
         employeesData.map((employee, index) => (
-          <li>
-            <div class="employee-image-container">
-              <img src={employee.img} alt={employee.name} class="employee-img" />
-              <div class="bubble-wrapper">
-                <Bubble text={employee.title} variant={index === 0 ? "primary" : "secondary"} />
+          <a href={`/employee/${employee.slug}`}>
+            <li>
+              <div class="employee-image-container">
+                <img src={employee.img} alt={employee.name} class="employee-img" />
+                <div class="bubble-wrapper">
+                  <Bubble text={employee.title} variant={index === 0 ? "primary" : "secondary"} />
+                </div>
               </div>
-            </div>
 
-            <h3 class="employee-name">{employee.name}</h3>
+              <h3 class="employee-name">{employee.name}</h3>
 
-            <p class="employee-description">{employee.description}</p>
+              <p class="employee-description">{employee.description}</p>
 
-            <div class="social-links">
-              {employee.social_links.map((social) => (
-                <a href={social.url} class="social-link" aria-label={social.platform}>
-                  <div innerHTML={social.icon} />
-                </a>
-              ))}
-            </div>
-          </li>
+              <div class="social-links">
+                {employee.social_links.map((social) => (
+                  <a href={social.url} class="social-link" aria-label={social.platform}>
+                    <div innerHTML={social.icon} />
+                  </a>
+                ))}
+              </div>
+            </li>
+          </a>
         ))
       }
     </ul>

@@ -28,7 +28,7 @@ import NumbersAbout from "./NumbersAbout.astro";
       grid-column: content;
       grid-template-columns: subgrid;
       gap: 2rem;
-      margin: 5% 0 0 0;
+      margin-block: 4rem;
       .text-container {
         display: flex;
         flex-direction: column;
@@ -61,14 +61,16 @@ import NumbersAbout from "./NumbersAbout.astro";
         }
       }
       figure {
+        max-width: 46rem;
+        border-radius: var(--button-radius);
         position: relative;
-        height: auto;
+        padding: 3rem 2rem 0;
 
         .en {
           position: absolute;
           top: 0;
           right: 0;
-          z-index: -1;
+          z-index: -2;
         }
 
         &::before {
@@ -77,14 +79,18 @@ import NumbersAbout from "./NumbersAbout.astro";
           width: 164px;
           height: 183px;
           position: absolute;
-          top: 12%;
-          right: -8%;
+          top: 8%;
+          right: 2%;
           z-index: -1;
           border-radius: var(--button-radius);
         }
         .to {
-          position: absolute;
-          top: 15%;
+          width: 100%;
+          z-index: 1;
+          height: 20rem;
+          object-fit: cover;
+          object-position: 0% 30%;
+          border-radius: inherit;
         }
       }
     }
