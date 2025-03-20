@@ -18,7 +18,7 @@ const caseData = await fetch("https://frontend-design-theme.netlify.app/api/case
         ) : (
           <p>{section.content}</p>
         )}
-        <div class="img-container">{index === 1 && <img src="/public/img/storyboardIMG.webp" alt="" />}</div>
+        <div class="img-container">{index === 1 && <img src="/img/storyboardIMG.webp" alt="" />}</div>
         {section.highlights && (
           <ul>
             {section.highlights.map((highlight) => (
