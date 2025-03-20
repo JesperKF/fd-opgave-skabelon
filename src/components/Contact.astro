@@ -2,11 +2,12 @@
 import Phone from "../icons/phone.svg";
 import Pin from "../icons/pin.svg";
 import Clock from "../icons/clock.svg";
+import Bubble from "./Bubble.astro";
 ---
 
 <section>
   <div class="info">
-    <p class="bubble">PROCESS</p>
+    <Bubble text="PROCCESS" variant="primary" />
     <div class="heading">
       <h2>Contact Us. It's Easy.</h2>
     </div>
@@ -65,15 +66,6 @@ import Clock from "../icons/clock.svg";
             color: var(--primary-color);
             padding-bottom: 0.5rem;
           }
-        }
-        .bubble {
-          background-color: var(--yellow-button);
-          color: var(--primary-color);
-          border-radius: var(--box-radius);
-          padding: 0.2rem 1rem;
-          width: fit-content;
-          margin-bottom: 0.5rem;
-          margin-bottom: 1rem;
         }
         ul {
           display: grid;
@@ -152,5 +144,4 @@ import Clock from "../icons/clock.svg";
       }
     }
   }
-  /*object-fit: cover; border-radius: var(--button-radius);*/
 </style>

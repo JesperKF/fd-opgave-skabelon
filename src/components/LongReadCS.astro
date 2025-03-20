@@ -1,0 +1,51 @@
+---
+//@ts-nocheck
+const caseData = await fetch("https://frontend-design-theme.netlify.app/api/caseStudy").then((response) => response.json());
+---
+
+<article>
+  {
+    caseData.sections.map((section) => (
+      <section>
+        {caseData.sections[0] === section ? <h2>{section.title}</h2> : <h3>{section.title}</h3>}
+
+        {Array.isArray(section.content) ? (
+          <>
+            {section.content.map((item) => (
+              <p>{item}</p>
+            ))}
+          </>
+        ) : (
+          <p>{section.content}</p>
+        )}
+        {section.highlights && (
+          <ul>
+            {section.highlights.map((highlight) => (
+              <li>{highlight}</li>
+            ))}
+          </ul>
+        )}
+      </section>
+    ))
+  }
+</article>
+
+<style>
+  @layer components {
+    article {
+      padding-inline: 8rem;
+    }
+    h2 {
+      font-size: var(--s-font);
+      font-weight: 700;
+    }
+    h3 {
+      font-size: var(--xs-font);
+      font-weight: 600;
+    }
+    p {
+      margin-block: 1rem;
+      color: var(--accent-color-second);
+    }
+  }
+</style>

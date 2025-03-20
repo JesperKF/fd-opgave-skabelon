@@ -1,8 +1,8 @@
 ---
-const { src, title, desc } = Astro.props;
+const { src, title, desc, height } = Astro.props;
 ---
 
-<section class="hero" style={`background-image: url(${src})`}>
+<section class="hero" style={`background-image: url(${src}); min-height: ${height || "600px"}`}>
   <div class="textbox">
     <p class="bubble">{title}</p>
     <h2>{desc}</h2>
@@ -27,7 +27,7 @@ const { src, title, desc } = Astro.props;
         max-width: 600px;
         margin-top: 8rem;
         margin-left: 3rem;
-        padding: 3rem 2rem;
+        padding: 2.5rem 1.5rem;
         gap: 0.5rem;
         background-color: var(--transparent-box);
         border-radius: var(--button-radius);

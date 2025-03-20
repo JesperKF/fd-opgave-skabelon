@@ -2,11 +2,12 @@
 //@ts-nocheck
 const experienceData = await fetch("https://frontend-design-theme.netlify.app/api/experience").then((response) => response.json());
 console.log(experienceData);
+import Bubble from "./Bubble.astro";
 ---
 
 <section>
   <div class="left">
-    <p class="bubble">EXPERIENCE</p>
+    <Bubble text="EXPERIENCE" variant="quaternary" />
     <h2>More than 25 years of experience</h2>
     <p>3000+ our clients are insured around the World</p>
   </div>
@@ -36,16 +37,6 @@ console.log(experienceData);
       .left {
         grid-column: 2;
         color: var(--primary-color);
-
-        .bubble {
-          background-color: var(--third-color);
-          color: var(--primary-color);
-          border-radius: var(--box-radius);
-          padding: 0.2rem 1rem;
-          width: fit-content;
-          margin-bottom: 0.5rem;
-          margin-bottom: 1rem;
-        }
 
         h2 {
           font-size: var(--xs-font);

@@ -1,0 +1,48 @@
+---
+
+---
+
+<section>
+  <ul class="numbers">
+    <li>
+      <h2>1128+</h2>
+      <p>Successful Work</p>
+    </li>
+    <li>
+      <h2>908+</h2>
+      <p>Team member</p>
+    </li>
+    <li>
+      <h2>258+</h2>
+      <p>Happy Customers</p>
+    </li>
+    <li>
+      <h2>564+</h2>
+      <p>Creative Idea</p>
+    </li>
+  </ul>
+</section>
+
+<style>
+  @layer components {
+    section {
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-column: 1/-1;
+      .numbers {
+        grid-column: content;
+        display: flex;
+        list-style: none;
+        gap: 10rem;
+        padding-inline: 8rem;
+        li {
+          text-align: center;
+          h2 {
+            font-size: var(--s-font);
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+</style>

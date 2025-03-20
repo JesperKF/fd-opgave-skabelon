@@ -1,0 +1,35 @@
+---
+const { text, variant } = Astro.props;
+---
+
+<p data-variant={variant}>{text}</p>
+
+<style>
+  @layer components {
+    p {
+      border-radius: var(--box-radius);
+      padding: 0.2rem 1rem;
+      width: fit-content;
+      margin-bottom: 1rem;
+    }
+    p[data-variant="primary"] {
+      background-color: var(--yellow-button);
+      color: var(--primary-color);
+    }
+
+    p[data-variant="secondary"] {
+      background-color: var(--primary-color);
+      color: var(--third-color);
+    }
+
+    p[data-variant="tertiary"] {
+      background-color: var(--accent-color);
+      color: var(--third-color);
+    }
+
+    p[data-variant="quaternary"] {
+      background-color: var(--third-color);
+      color: var(--primary-color);
+    }
+  }
+</style>

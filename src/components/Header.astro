@@ -25,13 +25,14 @@ import Popover from "./Popover.astro";
   @layer components {
     header {
       grid-column: 1/-1;
+      background-color: var(--primary-color-light);
     }
     h1 {
       font-size: var(--xs-font);
     }
 
     .header {
-      background-color: var(--primary-color-light);
+      grid-column: content;
       color: var(--third-color);
       display: flex;
       padding: 1rem 2rem;

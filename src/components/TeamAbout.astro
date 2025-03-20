@@ -3,11 +3,13 @@
 const employeesData = await fetch("https://frontend-design-theme.netlify.app/api/employees")
   .then((response) => response.json())
   .then((data) => data.slice(0, 3));
+
+import Bubble from "./Bubble.astro";
 ---
 
 <section>
   <div class="text">
-    <p class="bubble">OUR TEAM</p>
+    <Bubble text="OUR TEAM" variant="primary" />
     <h2>We champion the bold to achieve the extraordinary</h2>
     <p>
       Our success stems from the synergy between dedicated teams and our valued clients. We prioritize a company culture that fosters exceptional productivity, ensures customer satisfaction, and
@@ -17,12 +19,13 @@ const employeesData = await fetch("https://frontend-design-theme.netlify.app/api
   <div class="employees">
     <ul>
       {
-        employeesData.map((employee) => (
+        employeesData.map((employee, index) => (
           <li>
             <img src={employee.img} alt={employee.name} class="employee-img" />
 
             <h3 class="employee-name">{employee.name}</h3>
-            <p class="bubble">{employee.title}</p>
+
+            <Bubble text={employee.title} variant={index === 0 ? "primary" : "secondary"} />
 
             <p class="employee-description">{employee.description}</p>
 
@@ -54,6 +57,23 @@ const employeesData = await fetch("https://frontend-design-theme.netlify.app/api
         grid-row: 2;
         ul {
           display: flex;
+          list-style: none;
+          gap: 3rem;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          li {
+            img {
+              border-radius: var(--button-radius);
+            }
+            h3 {
+              font-size: var(--xxs-font);
+              font-weight: 600;
+            }
+            .employee-description {
+              color: var(--accent-color-second);
+            }
+          }
         }
       }
     }

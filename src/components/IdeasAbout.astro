@@ -1,0 +1,92 @@
+---
+import Bubble from "./Bubble.astro";
+import Checkmark from "../icons/checkmark.svg";
+import NumbersAbout from "./NumbersAbout.astro";
+---
+
+<section>
+  <div class="text-container">
+    <Bubble text="OUR VISION" variant="tertiary" />
+    <h2>Turn your ideas into reality.</h2>
+    <p class="info">Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.</p>
+    <ul class="list">
+      <li><Checkmark class="check" />Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day.</li>
+      <li><Checkmark class="check" />Capitalize on low hanging fruit to identify a ballpark value added activity to beta test override the digital.</li>
+    </ul>
+  </div>
+  <figure>
+    <img class="en" src="../img/Pattern.png" alt="" />
+    <img class="to" src="../img/ideasSection.webp" alt="ide" />
+  </figure>
+  <NumbersAbout />
+</section>
+
+<style>
+  @layer components {
+    section {
+      display: grid;
+      grid-column: content;
+      grid-template-columns: subgrid;
+      gap: 2rem;
+      margin: 5% 0 0 0;
+      .text-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h2 {
+          font-size: var(--s-font);
+          font-weight: 700;
+          color: var(--primary-color);
+          padding-bottom: 1rem;
+        }
+        .info {
+          color: var(--primary-color);
+          padding-bottom: 1rem;
+        }
+        ul {
+          display: grid;
+          list-style: none;
+          padding-left: 0;
+          gap: 1rem;
+
+          li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            .check {
+              color: var(--accent-color);
+            }
+          }
+        }
+      }
+      figure {
+        position: relative;
+        height: auto;
+
+        .en {
+          position: absolute;
+          top: 0;
+          right: 0;
+          z-index: -1;
+        }
+
+        &::before {
+          content: "";
+          background-color: var(--accent-color);
+          width: 164px;
+          height: 183px;
+          position: absolute;
+          top: 12%;
+          right: -8%;
+          z-index: -1;
+          border-radius: var(--button-radius);
+        }
+        .to {
+          position: absolute;
+          top: 15%;
+        }
+      }
+    }
+  }
+</style>

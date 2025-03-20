@@ -1,5 +1,6 @@
 ---
 import Checkmark from "../icons/checkmark.svg";
+import Bubble from "./Bubble.astro";
 ---
 
 <section>
@@ -8,9 +9,9 @@ import Checkmark from "../icons/checkmark.svg";
     <img class="to" src="../img/whatIndex.webp" alt="mand" />
   </figure>
   <div class="text">
-    <p class="bubble">WE'LL WORK WITH YOU</p>
+    <Bubble text="WE'LL WORK WITH YOU" variant="primary" />
     <h2>What To Expect</h2>
-    <p>Our collaboration is built on transparency, efficiency, and measurable results. Together, we create strategies tailored to your unique needs and goals.</p>
+    <p class="info">Our collaboration is built on transparency, efficiency, and measurable results. Together, we create strategies tailored to your unique needs and goals.</p>
     <ul class="list">
       <li><Checkmark class="check" />Collaborate to build actionable strategies that drive sustainable growth and deliver tangible outcomes.</li>
       <li><Checkmark class="check" />Identify opportunities to optimize processes and implement impactful solutions with measurable results.</li>
@@ -65,23 +66,13 @@ import Checkmark from "../icons/checkmark.svg";
         display: flex;
         flex-direction: column;
         justify-content: center;
-
-        .bubble {
-          background-color: var(--yellow-button);
-          color: var(--primary-color);
-          border-radius: var(--box-radius);
-          padding: 0.2rem 1rem;
-          width: fit-content;
-          margin-bottom: 0.5rem;
-          margin-bottom: 1rem;
-        }
         h2 {
           font-size: var(--s-font);
           font-weight: 700;
           color: var(--primary-color);
           padding-bottom: 1rem;
         }
-        p {
+        .info {
           color: var(--primary-color);
           padding-bottom: 1rem;
         }
