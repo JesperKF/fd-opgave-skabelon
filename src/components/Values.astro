@@ -6,7 +6,7 @@ const { variant = "secondary" } = Astro.props;
 import Button from "./Button.astro";
 ---
 
-<section data-variant={variant}>
+<section data-variant={variant} class="full-bleed">
   <div class="top">
     <div class="text">
       <p class="title">GROWING WITH OUR CLIENTS</p>
@@ -19,15 +19,32 @@ import Button from "./Button.astro";
   </div>
   <div class="grid">
     <ul>
-      {
+      <!-- {
         valuesData.values.map((value) => (
           <li>
-            <img src={`src/icons/${value.icon}.svg`} alt="" />
+            <svg src={`src/icons/${value.icon}.svg`} alt="" />
             <h2>{value.title}</h2>
             <p>{value.description}</p>
             <a href={value.link.url}>{value.link.text}</a>
           </li>
         ))
+      } -->
+
+      {
+        valuesData.values.map(async (value) => {
+          const Icon = await import(`../icons/${value.icon}.svg`).then((module) => module.default);
+
+          return (
+            <li>
+              <div class="svg-wrapper">
+                <Icon />
+              </div>
+              <h2>{value.title}</h2>
+              <p>{value.description}</p>
+              <a href={value.link.url}>{value.link.text}</a>
+            </li>
+          );
+        })
       }
     </ul>
   </div>
@@ -46,7 +63,6 @@ import Button from "./Button.astro";
         display: flex;
 
         justify-content: space-between;
-        width: var(--content-width);
       }
 
       .text {
@@ -91,13 +107,20 @@ import Button from "./Button.astro";
             background-color: var(--third-color);
             border-radius: var(--button-radius);
             color: var(--primary-color);
-            img {
-              width: 40px;
-              height: 40px;
-              color: var(--third-color);
+
+            .svg-wrapper {
               background-color: var(--primary-color);
               border-radius: var(--box-radius);
               padding: 0.5rem;
+              display: inline-flex;
+              width: fit-content;
+            }
+
+            svg {
+              width: 2rem;
+              height: 2rem;
+              display: block;
+              color: var(--third-color);
             }
             h2 {
               font-size: var(--xxs-font);
@@ -123,10 +146,10 @@ import Button from "./Button.astro";
       grid-column: 1/-1;
 
       .top {
+        padding-inline: 3rem;
         display: flex;
-        flex-direction: row;
+
         justify-content: space-between;
-        width: var(--content-width);
       }
 
       .text {
@@ -160,9 +183,9 @@ import Button from "./Button.astro";
         ul {
           list-style: none;
           display: flex;
-          flex-direction: row;
-          gap: 1rem;
+          gap: 3rem;
           width: var(--content-width);
+          justify-content: center;
           li {
             display: flex;
             flex-direction: column;
@@ -171,13 +194,19 @@ import Button from "./Button.astro";
             background-color: var(--third-color);
             border-radius: var(--button-radius);
             color: var(--primary-color);
-            img {
-              width: 40px;
-              height: 40px;
-              color: var(--third-color);
+            .svg-wrapper {
               background-color: var(--primary-color);
               border-radius: var(--box-radius);
               padding: 0.5rem;
+              display: inline-flex;
+              width: fit-content;
+            }
+
+            svg {
+              width: 2rem;
+              height: 2rem;
+              display: block;
+              color: var(--third-color);
             }
             h2 {
               font-size: var(--xxs-font);

@@ -21,11 +21,14 @@ import Bubble from "./Bubble.astro";
       {
         employeesData.map((employee, index) => (
           <li>
-            <img src={employee.img} alt={employee.name} class="employee-img" />
+            <div class="employee-image-container">
+              <img src={employee.img} alt={employee.name} class="employee-img" />
+              <div class="bubble-wrapper">
+                <Bubble text={employee.title} variant={index === 0 ? "primary" : "secondary"} />
+              </div>
+            </div>
 
             <h3 class="employee-name">{employee.name}</h3>
-
-            <Bubble text={employee.title} variant={index === 0 ? "primary" : "secondary"} />
 
             <p class="employee-description">{employee.description}</p>
 
@@ -49,8 +52,14 @@ import Bubble from "./Bubble.astro";
       display: grid;
       grid-template-columns: subgrid;
       grid-column: 1/-1;
+      padding-block: 2rem;
       .text {
         grid-column: 2;
+        padding-bottom: 2rem;
+        h2 {
+          font-size: var(--s-font);
+          font-weight: 700;
+        }
       }
       .employees {
         grid-column: content;
@@ -63,8 +72,22 @@ import Bubble from "./Bubble.astro";
           justify-content: center;
           text-align: center;
           li {
-            img {
-              border-radius: var(--button-radius);
+            .employee-image-container {
+              position: relative;
+              display: inline-block;
+              width: 100%;
+              .employee-img {
+                display: block;
+                width: 100%;
+                height: auto;
+                border-radius: var(--button-radius);
+              }
+              .bubble-wrapper {
+                position: absolute;
+                bottom: 10px;
+                right: 20px;
+                z-index: 1;
+              }
             }
             h3 {
               font-size: var(--xxs-font);

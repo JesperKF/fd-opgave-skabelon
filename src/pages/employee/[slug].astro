@@ -1,0 +1,27 @@
+---
+// @ts-nocheck
+import Layout from "../../layouts/Layout.astro";
+
+//laver statiske stier for hvert produkt
+export async function getStaticPaths() {
+  const url = "https://frontend-design-theme.netlify.app/api/employees";
+  // Forklaring på brugen af url og options kan findes på productlist.astro
+
+  // Fetcher data og koncerterer til json
+  const employees = await fetch(url).then((res) => res.json());
+  // Retunerer stien ud fra slug, som er en del af vores database i supabase
+  return employees.map((data) => ({
+    params: { slug: data.slug }, // [artist]=artist.slug
+    props: {
+      data,
+    }, // sender al data med som props
+  }));
+}
+// henter data som props, som bruges til at vise data på sitet.
+const { data } = Astro.props;
+console.log(data);
+---
+
+<Layout>
+  <h1>{data.name}</h1>
+</Layout>

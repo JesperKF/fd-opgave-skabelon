@@ -6,13 +6,15 @@
 
 <div id="popup" popover>
   <h2>Dashboard Login</h2>
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" required />
+  <form>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
 
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="password" required />
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required />
 
-  <button popovertarget="popup">Go to dashboard</button>
+    <button popovertarget="popup">Go to dashboard</button>
+  </form>
 </div>
 
 <style>
@@ -28,6 +30,12 @@
       &:hover {
         background-color: var(--yellow-button-hover);
       }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
     ::backdrop {

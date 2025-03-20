@@ -55,3 +55,12 @@ body {
     grid-column: content;
   }
 }
+.full-bleed {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+
+  > * {
+    grid-column: content;
+  }
+}

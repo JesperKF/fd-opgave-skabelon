@@ -9,10 +9,10 @@ import Popover from "./Popover.astro";
     </div>
     <div>
       <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="">Case Study</a></li>
-        <li><a href="">Team</a></li>
-        <li><a href="">About</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/casestudy">Case Study</a></li>
+        <li><a href="/team">Team</a></li>
+        <li><a href="/about">About</a></li>
       </ul>
     </div>
     <div>
@@ -27,15 +27,16 @@ import Popover from "./Popover.astro";
       grid-column: 1/-1;
       background-color: var(--primary-color-light);
     }
-    h1 {
-      font-size: var(--xs-font);
-    }
 
     .header {
       grid-column: content;
       color: var(--third-color);
       display: flex;
-      padding: 1rem 2rem;
+
+      padding-block: 1rem;
+      h1 {
+        font-size: var(--xs-font);
+      }
     }
 
     .header div {
